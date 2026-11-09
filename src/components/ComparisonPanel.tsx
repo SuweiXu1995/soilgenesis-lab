@@ -282,7 +282,9 @@ const selectStyle: React.CSSProperties = {
   border: "1px solid #CCC",
   borderRadius: "6px",
   background: "white",
-  fontSize: "14px"
+  fontSize: "14px",
+  color: "#29251F",
+  backgroundColor: "#FFFFFF"
 };
 
 const cardStyle: React.CSSProperties = {
