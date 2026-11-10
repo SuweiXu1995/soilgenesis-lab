@@ -10,6 +10,7 @@ import {
 import "./index.css";
 import App from "./App.tsx";
 import ClorptPage from "./pages/ClorptPage.tsx";
+import PedogenicProcessesPage from "./pages/PedogenicProcessesPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/learn/clorpt" element={<ClorptPage />} />
+        <Route path="/learn/pedogenic-processes" element={<PedogenicProcessesPage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

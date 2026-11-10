@@ -113,6 +113,18 @@ export default function App() {
     >
       Learn CLORPT
     </Link>
+
+    <Link
+      to="/learn/pedogenic-processes"
+      style={{
+        color: "#4e8f5a",
+        fontWeight: 600,
+        textDecoration: "none"
+      }}
+    >
+      Pedogenic Processes
+    </Link>
+
   </nav>
 </header>
 
