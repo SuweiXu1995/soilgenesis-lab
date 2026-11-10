@@ -1,5 +1,6 @@
 import ComparisonPanel from "./components/ComparisonPanel";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import SoilProfile from "./components/SoilProfile";
 import ProcessPanel from "./components/ProcessPanel";
 
@@ -70,16 +71,51 @@ export default function App() {
       color: "#29251F"
     }}>
 
-      <header style={{ marginBottom: "30px" }}>
-        <h1 style={{ fontSize: "32px", marginBottom: "8px" }}>
-          SoilGenesis Lab
-        </h1>
+      
+<header style={{ marginBottom: "30px" }}>
+  <h1 style={{ fontSize: "32px", marginBottom: "8px" }}>
+    SoilGenesis Lab
+  </h1>
 
-        <p style={{ color: "#666", fontSize: "16px" }}>
-          Explore how climate, organisms, relief, parent material, and time
-          interact to shape soil formation.
-        </p>
-      </header>
+  <p style={{ color: "#a4b2a1", fontSize: "16px" }}>
+    Explore how climate, organisms, relief, parent material, and time
+    interact to shape soil formation.
+  </p>
+
+  <nav
+    aria-label="Main navigation"
+    style={{
+      display: "flex",
+      gap: "24px",
+      marginTop: "18px",
+      borderBottom: "1px solid #DCE5D8",
+      paddingBottom: "12px"
+    }}
+  >
+    <Link
+      to="/"
+      style={{
+        color: "#4e8f5a",
+        fontWeight: 700,
+        textDecoration: "none"
+      }}
+    >
+      Simulator
+    </Link>
+
+    <Link
+      to="/learn/clorpt"
+      style={{
+        color: "#4e8f5a",
+        fontWeight: 600,
+        textDecoration: "none"
+      }}
+    >
+      Learn CLORPT
+    </Link>
+  </nav>
+</header>
+
 
       {/* Educational introduction for visitors and search engines */}
       <section
@@ -87,14 +123,14 @@ export default function App() {
         style={{
           marginBottom: "28px",
           lineHeight: "1.7",
-          color: "#444"
+          color: "#a4b2a1"
         }}
       >
         <h2
           id="soil-genesis-introduction"
           style={{
             fontSize: "23px",
-            color: "#426B45",
+            color: "#4e8f5a",
             marginBottom: "12px"
           }}
         >
@@ -127,6 +163,7 @@ export default function App() {
 
       <section style={{
         background: "#F7F5F0",
+        color: "#4a5348",
         padding: "24px",
         borderRadius: "12px",
         marginBottom: "28px"
