@@ -81,6 +81,50 @@ export default function App() {
         </p>
       </header>
 
+      {/* Educational introduction for visitors and search engines */}
+      <section
+        aria-labelledby="soil-genesis-introduction"
+        style={{
+          marginBottom: "28px",
+          lineHeight: "1.7",
+          color: "#444"
+        }}
+      >
+        <h2
+          id="soil-genesis-introduction"
+          style={{
+            fontSize: "23px",
+            color: "#426B45",
+            marginBottom: "12px"
+          }}
+        >
+          Explore the Science of Soil Formation
+        </h2>
+
+        <p>
+          SoilGenesis Lab is an interactive soil formation simulator
+          designed to explore the processes of soil genesis and
+          pedogenesis through the five soil-forming factors described
+          by the CLORPT model: climate, organisms, relief, parent
+          material, and time.
+        </p>
+
+        <p>
+          Experiment with different environmental conditions to
+          investigate how soil-forming factors interact to influence
+          weathering, organic matter accumulation, translocation,
+          horizon differentiation, and soil profile development.
+        </p>
+
+        <p>
+          Whether you are a soil science student, educator, or
+          researcher, SoilGenesis Lab provides an interactive
+          educational environment for understanding soil genesis,
+          pedogenic processes, and the development of diverse soil
+          profiles.
+        </p>
+      </section>
+
       <section style={{
         background: "#F7F5F0",
         padding: "24px",
