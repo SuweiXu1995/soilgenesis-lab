@@ -68,25 +68,68 @@ export default function ClorptPage() {
   return (
     <main
       style={{
-        maxWidth: "1050px",
+        maxWidth: "1100px",
         margin: "0 auto",
-        padding: "40px 24px 70px",
+        padding: "30px 20px 70px",
         color: "#7f997f",
-        lineHeight: 1.75,
+        fontFamily: "Arial, sans-serif",
       }}
     >
-      <nav style={{ marginBottom: "28px" }}>
-        <Link
-          to="/"
-          style={{
-            color: "#548a58",
-            fontWeight: 600,
-            textDecoration: "none",
-          }}
-        >
-          ← Back to SoilGenesis Lab
-        </Link>
-      </nav>
+<header style={{ marginBottom: "30px" }}>
+  <h1 style={{ fontSize: "32px", marginBottom: "8px" }}>
+    SoilGenesis Lab
+  </h1>
+
+  <p style={{ color: "#a4b2a1", fontSize: "16px" }}>
+    Explore how climate, organisms, relief, parent material, and time
+    interact to shape soil formation.
+  </p>
+
+  <nav
+    aria-label="Main navigation"
+    style={{
+      display: "flex",
+      gap: "24px",
+      marginTop: "18px",
+      borderBottom: "1px solid #DCE5D8",
+      paddingBottom: "12px"
+    }}
+  >
+    <Link
+      to="/"
+      style={{
+        color: "#4e8f5a",
+        fontWeight: 700,
+        textDecoration: "none"
+      }}
+    >
+      Simulator
+    </Link>
+
+    <Link
+      to="/learn/clorpt"
+      style={{
+        color: "#4e8f5a",
+        fontWeight: 700,
+        textDecoration: "none"
+      }}
+    >
+      Learn CLORPT
+    </Link>
+
+    <Link
+      to="/learn/pedogenic-processes"
+      style={{
+        color: "#4e8f5a",
+        fontWeight: 700,
+        textDecoration: "none"
+      }}
+    >
+      Pedogenic Processes
+    </Link>
+
+  </nav>
+</header>
 
       <header style={{ marginBottom: "38px" }}>
         <p
@@ -228,7 +271,7 @@ export default function ClorptPage() {
 
               <p>{factor.description}</p>
 
-              <strong style={{ color: "#426B45", textAlign: "left" }}>
+              <strong style={{ color: "#426B45" }}>
                 Examples of influence:
               </strong>
 
