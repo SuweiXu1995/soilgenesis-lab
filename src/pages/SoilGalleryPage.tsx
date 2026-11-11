@@ -1,4 +1,4 @@
-
+import IllustrativeSoilProfile from "../components/IllustrativeSoilProfile";
 import { Link } from "react-router-dom";
 
 interface SoilExample {
@@ -7,6 +7,13 @@ interface SoilExample {
   description: string;
   processes: string[];
   horizons: string;
+  illustrativeHorizons: {
+    name: string;
+    description: string;
+    thickness: number;
+    color: string;
+    textColor?: string;
+  }[];
   climate: string;
   organisms: string;
   relief: string;
@@ -23,6 +30,33 @@ const examples: SoilExample[] = [
       "Grassland ecosystems promote substantial root biomass and organic matter incorporation, favoring the development of a dark, organic-rich surface horizon.",
     processes: ["Melanization", "Bioturbation", "Base cycling"],
     horizons: "A – AB – Bw – C",
+    illustrativeHorizons: [
+  {
+    name: "A",
+    description: "A thick, dark mollic surface horizon enriched in organic matter through extensive grass roots and biological mixing.",
+    thickness: 5,
+    color: "#493222"
+  },
+  {
+    name: "AB",
+    description: "A transitional horizon showing decreasing organic matter and increasing influence of underlying mineral soil.",
+    thickness: 2,
+    color: "#76513A"
+  },
+  {
+    name: "Bw",
+    description: "A weakly developed subsurface horizon showing early alteration of soil minerals and structure.",
+    thickness: 3,
+    color: "#A77A50"
+  },
+  {
+    name: "C",
+    description: "Relatively unaltered loess parent material.",
+    thickness: 4,
+    color: "#C5A477",
+    textColor: "#392D20"
+  }
+],
     climate: "cool humid continental",
     organisms: "grassland",
     relief: "summit",
@@ -37,6 +71,34 @@ const examples: SoilExample[] = [
       "Moderate to strong leaching and clay translocation can produce an argillic horizon beneath an eluvial or surface horizon.",
     processes: ["Lessivage", "Eluviation", "Clay illuviation"],
     horizons: "A – E – Bt – C",
+    illustrativeHorizons: [
+  {
+    name: "A",
+    description: "A mineral surface horizon containing organic matter incorporated from forest litter.",
+    thickness: 2,
+    color: "#59402D"
+  },
+  {
+    name: "E",
+    description: "A pale eluvial horizon depleted in clay, iron, and organic matter through eluviation.",
+    thickness: 3,
+    color: "#C9BFA5",
+    textColor: "#392D20"
+  },
+  {
+    name: "Bt",
+    description: "An argillic horizon enriched in translocated silicate clay, commonly with clay coatings on ped surfaces and pores.",
+    thickness: 5,
+    color: "#80513A"
+  },
+  {
+    name: "C",
+    description: "Relatively weakly altered loess parent material.",
+    thickness: 4,
+    color: "#C5A477",
+    textColor: "#392D20"
+  }
+],
     climate: "temperate humid",
     organisms: "deciduous forest",
     relief: "summit",
@@ -51,6 +113,40 @@ const examples: SoilExample[] = [
       "Acidic forest litter and organic ligands promote the mobilization and downward translocation of organic matter and Al, with Fe also involved in many profiles.",
     processes: ["Podzolization", "Eluviation", "Spodic accumulation"],
     horizons: "O – E – Bh/Bs – C",
+    illustrativeHorizons: [
+  {
+    name: "O",
+    description: "An organic surface layer formed from accumulated coniferous forest litter.",
+    thickness: 2,
+    color: "#38291F"
+  },
+  {
+    name: "E",
+    description: "A strongly eluviated, pale horizon depleted in organic matter and mobile Fe and Al.",
+    thickness: 4,
+    color: "#D0C6AC",
+    textColor: "#392D20"
+  },
+  {
+    name: "Bh",
+    description: "A dark spodic horizon where translocated organic matter accumulates with Al and sometimes Fe.",
+    thickness: 3,
+    color: "#493026"
+  },
+  {
+    name: "Bs",
+    description: "A reddish-brown spodic horizon characterized by accumulation of Fe and Al compounds.",
+    thickness: 3,
+    color: "#A65B37"
+  },
+  {
+    name: "C",
+    description: "Relatively unaltered glacial till parent material.",
+    thickness: 4,
+    color: "#B6A184",
+    textColor: "#392D20"
+  }
+],
     climate: "cool humid continental",
     organisms: "coniferous forest",
     relief: "summit",
@@ -65,6 +161,27 @@ const examples: SoilExample[] = [
       "Long-term warm, humid conditions favor intense mineral weathering, desilication, and residual accumulation of Fe and Al oxides.",
     processes: ["Ferralitization", "Desilication", "Oxide accumulation"],
     horizons: "A – Bo – C",
+    illustrativeHorizons: [
+  {
+    name: "A",
+    description: "A mineral surface horizon containing organic matter, often relatively thin under intensely weathered tropical conditions.",
+    thickness: 2,
+    color: "#493222"
+  },
+  {
+    name: "Bo",
+    description: "An intensely weathered, oxide-rich subsurface horizon dominated by kaolinite and Fe and Al oxides, with low-activity clay.",
+    thickness: 7,
+    color: "#A94D32"
+  },
+  {
+    name: "C",
+    description: "Relatively less weathered parent material beneath the strongly developed subsurface horizon.",
+    thickness: 3,
+    color: "#C19A72",
+    textColor: "#392D20"
+  }
+],
     climate: "humid tropical",
     organisms: "tropical rainforest",
     relief: "summit",
@@ -79,6 +196,28 @@ const examples: SoilExample[] = [
       "Limited effective leaching and high evapotranspiration can promote secondary carbonate accumulation and other salt-related features.",
     processes: ["Calcification", "Salinization", "Limited leaching"],
     horizons: "A – Bk – C",
+    illustrativeHorizons: [
+  {
+    name: "A",
+    description: "A relatively thin mineral surface horizon with limited organic matter accumulation.",
+    thickness: 2,
+    color: "#76543A"
+  },
+  {
+    name: "Bk",
+    description: "A subsurface horizon with secondary calcium carbonate accumulation, potentially including carbonate coatings and nodules.",
+    thickness: 5,
+    color: "#C8B58D",
+    textColor: "#392D20"
+  },
+  {
+    name: "C",
+    description: "Alluvial parent material with comparatively limited pedogenic alteration.",
+    thickness: 5,
+    color: "#D1B990",
+    textColor: "#392D20"
+  }
+],
     climate: "arid/semi-arid",
     organisms: "shrubland",
     relief: "footslope",
@@ -93,6 +232,32 @@ const examples: SoilExample[] = [
       "Persistent saturation slows aerobic decomposition and allows organic soil materials to accumulate over time.",
     processes: ["Paludization", "Organic matter accumulation", "Gleying"],
     horizons: "Oa – Oe – Oi – C",
+    illustrativeHorizons: [
+  {
+    name: "Oi",
+    description: "A fibric organic horizon containing recognizable, relatively undecomposed plant remains.",
+    thickness: 3,
+    color: "#66503A"
+  },
+  {
+    name: "Oe",
+    description: "A hemic organic horizon with intermediate decomposition and partially recognizable plant structures.",
+    thickness: 3,
+    color: "#493629"
+  },
+  {
+    name: "Oa",
+    description: "A sapric organic horizon consisting of highly decomposed organic material.",
+    thickness: 5,
+    color: "#30251F"
+  },
+  {
+    name: "C",
+    description: "Underlying mineral sediment, potentially saturated and showing reducing conditions.",
+    thickness: 3,
+    color: "#85877C"
+  }
+],
     climate: "wetland/poorly drained",
     organisms: "wetland vegetation",
     relief: "depression",
@@ -213,8 +378,8 @@ export default function SoilGalleryPage() {
         aria-label="Representative soil profiles"
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))",
-          gap: "22px"
+          gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+          gap: "26px"
         }}
       >
         {examples.map((example) => (
@@ -254,6 +419,22 @@ export default function SoilGalleryPage() {
               <p style={{ lineHeight: 1.65, color: "#596258" }}>
                 {example.description}
               </p>
+
+              <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+                <IllustrativeSoilProfile
+                    horizons={example.illustrativeHorizons}
+                />
+                <p
+                  style={{
+                    fontSize: "11px",
+                    color: "#888",
+                    textAlign: "center",
+                    marginTop: "8px"
+                  }}
+                >
+                  Conceptual profile · Relative horizon thicknesses
+                </p>
+              </div>
 
               <h3 style={sectionHeadingStyle}>Representative horizons</h3>
               <p
