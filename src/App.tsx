@@ -1,6 +1,6 @@
 import ComparisonPanel from "./components/ComparisonPanel";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import SoilProfile from "./components/SoilProfile";
 import ProcessPanel from "./components/ProcessPanel";
 
@@ -18,18 +18,99 @@ const defaultInputs: ClorptInputs = {
   timeYears: 100000
 };
 
-const initialDrivers = calculatePedogenicDrivers(defaultInputs);
+function getInitialInputs(params: URLSearchParams): ClorptInputs {
+  const climateOptions = [
+    "humid tropical",
+    "temperate humid",
+    "cool humid continental",
+    "arid/semi-arid",
+    "wetland/poorly drained",
+    "cool humid volcanic upland"
+  ];
+
+  const organismOptions = [
+    "deciduous forest",
+    "grassland",
+    "coniferous forest",
+    "tropical rainforest",
+    "shrubland",
+    "wetland vegetation",
+    "cultivated cropland"
+  ];
+
+  const reliefOptions = [
+    "summit",
+    "backslope",
+    "footslope",
+    "depression",
+    "alluvial terrace"
+  ];
+
+  const parentMaterialOptions = [
+    "andesite",
+    "basalt",
+    "granite",
+    "loess",
+    "alluvium",
+    "volcanic ash",
+    "glacial till"
+  ];
+
+  const timeOptions = [
+    1000,
+    10000,
+    100000,
+    1000000,
+    10000000
+  ];
+
+  const climate = params.get("climate");
+  const organisms = params.get("organisms");
+  const relief = params.get("relief");
+  const parentMaterial = params.get("parentMaterial");
+  const timeYears = Number(params.get("timeYears"));
+
+  return {
+    climate: climateOptions.includes(climate as typeof climateOptions[number])
+      ? climate!
+      : defaultInputs.climate,
+
+    organisms: organismOptions.includes(organisms as typeof organismOptions[number])
+      ? organisms!
+      : defaultInputs.organisms,
+
+    relief: reliefOptions.includes(relief as typeof reliefOptions[number])
+      ? relief!
+      : defaultInputs.relief,
+
+    parentMaterial: parentMaterialOptions.includes(
+      parentMaterial as typeof parentMaterialOptions[number]
+    )
+      ? parentMaterial!
+      : defaultInputs.parentMaterial,
+
+    timeYears: timeOptions.includes(timeYears)
+      ? timeYears
+      : defaultInputs.timeYears
+  };
+}
 
 export default function App() {
-  const [inputs, setInputs] = useState<ClorptInputs>(defaultInputs);
+  const [searchParams] = useSearchParams();
+
+  const initialInputs = getInitialInputs(searchParams);
+  const initialDrivers = calculatePedogenicDrivers(initialInputs);
+
+  const [inputs, setInputs] = useState<ClorptInputs>(initialInputs);
+
   const [generatedInputs, setGeneratedInputs] =
-  useState<ClorptInputs>(defaultInputs);
+    useState<ClorptInputs>(initialInputs);
 
   const [drivers, setDrivers] =
     useState<PedogenicDrivers>(initialDrivers);
 
   const [horizons, setHorizons] = useState<SoilHorizon[]>(() => {
-    return generateSoilHorizons(defaultInputs, initialDrivers);
+    return generateSoilHorizons(initialInputs, initialDrivers);
   });
 
   const [error, setError] = useState("");
@@ -107,7 +188,7 @@ export default function App() {
       to="/learn/clorpt"
       style={{
         color: "#4e8f5a",
-        fontWeight: 600,
+        fontWeight: 700,
         textDecoration: "none"
       }}
     >
@@ -118,13 +199,24 @@ export default function App() {
       to="/learn/pedogenic-processes"
       style={{
         color: "#4e8f5a",
-        fontWeight: 600,
+        fontWeight: 700,
         textDecoration: "none"
       }}
     >
       Pedogenic Processes
     </Link>
 
+    <Link
+      to="/learn/soil-gallery"
+      style={{
+        color: "#4e8f5a",
+        fontWeight: 700,
+        textDecoration: "none"
+      }}
+    >
+      Soil Profile Gallery
+    </Link>
+    
   </nav>
 </header>
 

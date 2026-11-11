@@ -250,6 +250,17 @@ export default function PedogenicProcessesPage() {
       Pedogenic Processes
     </Link>
 
+    <Link
+      to="/learn/soil-gallery"
+      style={{
+        color: "#4e8f5a",
+        fontWeight: 700,
+        textDecoration: "none"
+      }}
+    >
+      Soil Profile Gallery
+    </Link>
+    
   </nav>
 </header>
 
