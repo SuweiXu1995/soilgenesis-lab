@@ -6,6 +6,7 @@ interface SoilExample {
   environment: string;
   description: string;
   processes: string[];
+  diagnosticFeatures: string[];
   horizons: string;
   illustrativeHorizons: {
     name: string;
@@ -29,6 +30,11 @@ const examples: SoilExample[] = [
     description:
       "Grassland ecosystems promote substantial root biomass and organic matter incorporation, favoring the development of a dark, organic-rich surface horizon.",
     processes: ["Melanization", "Bioturbation", "Base cycling"],
+    diagnosticFeatures: [
+    "Mollic epipedon: a thick, dark mineral surface horizon with substantial organic matter.",
+    "High base saturation (generally ≥50% under Soil Taxonomy criteria).",
+    "Typically associated with strong biological mixing and grassland productivity."
+    ],
     horizons: "A – AB – Bw – C",
     illustrativeHorizons: [
   {
@@ -70,6 +76,11 @@ const examples: SoilExample[] = [
     description:
       "Moderate to strong leaching and clay translocation can produce an argillic horizon beneath an eluvial or surface horizon.",
     processes: ["Lessivage", "Eluviation", "Clay illuviation"],
+    diagnosticFeatures: [
+    "Argillic or kandic horizon indicating subsurface clay accumulation, or another qualifying diagnostic horizon.",
+    "Base saturation of at least 35% at the specified depth under Soil Taxonomy criteria.",
+    "Often shows clay coatings (argillans) associated with lessivage."
+    ],
     horizons: "A – E – Bt – C",
     illustrativeHorizons: [
   {
@@ -112,6 +123,11 @@ const examples: SoilExample[] = [
     description:
       "Acidic forest litter and organic ligands promote the mobilization and downward translocation of organic matter and Al, with Fe also involved in many profiles.",
     processes: ["Podzolization", "Eluviation", "Spodic accumulation"],
+    diagnosticFeatures: [
+    "Spodic horizon with accumulation of illuvial organic matter and Al, with or without Fe.",
+    "Commonly associated with a bleached, eluviated E horizon above the spodic horizon.",
+    "Often develops under acidic forest litter in cool, humid environments."
+    ],
     horizons: "O – E – Bh/Bs – C",
     illustrativeHorizons: [
   {
@@ -160,6 +176,11 @@ const examples: SoilExample[] = [
     description:
       "Long-term warm, humid conditions favor intense mineral weathering, desilication, and residual accumulation of Fe and Al oxides.",
     processes: ["Ferralitization", "Desilication", "Oxide accumulation"],
+    diagnosticFeatures: [
+      "Oxic horizon: a deeply weathered subsurface horizon with low-activity clays.",
+      "Dominance of highly weathered minerals such as kaolinite, goethite, and hematite.",
+      "Low cation-exchange capacity and commonly low nutrient reserves."
+    ],
     horizons: "A – Bo – C",
     illustrativeHorizons: [
   {
@@ -195,6 +216,11 @@ const examples: SoilExample[] = [
     description:
       "Limited effective leaching and high evapotranspiration can promote secondary carbonate accumulation and other salt-related features.",
     processes: ["Calcification", "Salinization", "Limited leaching"],
+    diagnosticFeatures: [
+      "Development under an aridic soil moisture regime, subject to Soil Taxonomy requirements.",
+      "Common diagnostic subsurface horizons include calcic, petrocalcic, gypsic, salic, and argillic horizons.",
+      "Limited effective leaching often favors accumulation of carbonates, gypsum, or soluble salts."
+    ],
     horizons: "A – Bk – C",
     illustrativeHorizons: [
   {
@@ -231,6 +257,11 @@ const examples: SoilExample[] = [
     description:
       "Persistent saturation slows aerobic decomposition and allows organic soil materials to accumulate over time.",
     processes: ["Paludization", "Organic matter accumulation", "Gleying"],
+    diagnosticFeatures: [
+      "Dominance of organic soil materials within the upper soil profile.",
+      "Meets minimum organic-material thickness requirements, which vary with material type and underlying layers.",
+      "Often develops under prolonged saturation where decomposition is restricted."
+    ],
     horizons: "Oa – Oe – Oi – C",
     illustrativeHorizons: [
   {
@@ -456,6 +487,23 @@ export default function SoilGalleryPage() {
                 ))}
               </ul>
 
+            <h3 style={sectionHeadingStyle}>Diagnostic features</h3>
+
+            <ul
+              style={{
+                paddingLeft: "20px",
+                lineHeight: 1.7,
+                fontSize: "14px",
+                color: "#596258"
+              }}
+            >
+              {example.diagnosticFeatures.map((feature) => (
+                <li key={feature} style={{ marginBottom: "8px" }}>
+                  {feature}
+                </li>
+             ))}
+            </ul>
+
               <h3 style={sectionHeadingStyle}>CLORPT settings</h3>
               <p style={{ fontSize: "14px", lineHeight: 1.8 }}>
                 <strong>Climate:</strong> {example.climate}<br />
@@ -485,6 +533,85 @@ export default function SoilGalleryPage() {
           </article>
         ))}
       </section>
+
+<section
+  style={{
+    marginTop: "40px",
+    marginBottom: "30px",
+    overflowX: "auto"
+  }}
+>
+  <h2 style={{ color: "#4e8f5a", fontSize: "25px" }}>
+    Comparing Soil Orders
+  </h2>
+
+  <p style={{ color: "#7f997f", lineHeight: 1.7 }}>
+    Compare the characteristic environments, dominant pedogenic
+    processes, and diagnostic features of six representative soil orders.
+  </p>
+
+  <table
+    style={{
+      width: "100%",
+      minWidth: "850px",
+      borderCollapse: "collapse",
+      fontSize: "13px",
+      lineHeight: 1.6,
+      background: "#FFFFFF"
+    }}
+  >
+    <thead>
+      <tr style={{ background: "#426B45", color: "#FFFFFF" }}>
+        {["Soil order", "Typical environment", "Dominant process", "Key diagnostic feature"].map(
+          (heading) => (
+            <th
+              key={heading}
+              style={{
+                padding: "12px",
+                textAlign: "left",
+                border: "1px solid #DCE5D8"
+              }}
+            >
+              {heading}
+            </th>
+          )
+        )}
+      </tr>
+    </thead>
+
+    <tbody>
+      {[
+        ["Mollisol", "Grassland", "Melanization and bioturbation", "Mollic epipedon"],
+        ["Alfisol", "Temperate forest", "Lessivage", "Argillic or kandic horizon"],
+        ["Spodosol", "Cool humid forest", "Podzolization", "Spodic horizon"],
+        ["Oxisol", "Humid tropics", "Ferralitization", "Oxic horizon"],
+        ["Aridisol", "Arid and semiarid regions", "Calcification and salt accumulation", "Aridic moisture regime plus qualifying diagnostic features"],
+        ["Histosol", "Wetlands and organic-rich settings", "Paludization", "Organic soil materials"]
+      ].map((row) => (
+        <tr key={row[0]}>
+          {row.map((cell, index) => (
+            <td
+              key={index}
+              style={{
+                padding: "12px",
+                border: "1px solid #DCE5D8",
+                verticalAlign: "top",
+                fontWeight: index === 0 ? "bold" : "normal"
+              }}
+            >
+              {cell}
+            </td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <p style={{ fontSize: "12px", color: "#777", marginTop: "10px" }}>
+    Simplified educational comparison. Formal classification requires
+    applying the complete USDA Soil Taxonomy criteria.
+  </p>
+</section>
 
       <section
         style={{
